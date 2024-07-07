@@ -1,1 +1,7 @@
-<h3>Hello,WPRLD:</h3>
+<h3>TODO List:</h3>
+
+{% for task in tasks %}
+    <div>
+        <p>{{ task.title }} | Date Created: {{ task.created }}</p>
+    </div>
+{% endfor %}
