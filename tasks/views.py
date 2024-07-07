@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from . import models
+from . import models, forms
 
 def index(request):
     tasks = models.Task.objects.all()
-    return render(request, 'tasks/lists.html', {'tasks': tasks})
+    form = forms.TaskForm()
+    return render(request, 'tasks/lists.html', {'tasks': tasks, 'form': form})
