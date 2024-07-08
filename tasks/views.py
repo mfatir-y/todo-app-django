@@ -24,3 +24,12 @@ def updateTask(request, pk):
         return redirect('/')
 
     return render(request, 'tasks/update_task.html', {'task': task, 'form': form})
+
+def deleteTask(request, pk):
+    item = models.Task.objects.get(id=pk)
+
+    if request.method == 'POST':
+        item.delete()
+        return redirect('/')
+
+    return render(request, 'tasks/delete_task.html', {'item': item})
