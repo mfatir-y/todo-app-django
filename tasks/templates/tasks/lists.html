@@ -8,6 +8,7 @@
 
 {% for task in tasks %}
     <div>
-        <p>{{ task.title }} | Date Created: {{ task.created }}</p>
+        <a href="{% url 'update_task' task.id %}">Update Task</a>
+        <p>{{task}} | Date Created: {{ task.created }}</p>
     </div>
 {% endfor %}
