@@ -36,11 +36,18 @@
         box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.5);        
     }
     
+    h2 {
+        text-align: center;
+    }
+
+    hr {
+        margin: 0.5rem 0;
+    }
 </style>
 <body>
     <div class="center-column">
         <h2>TODO List</h2>   
-        
+        <hr>
         <form action="/" method="post" >
             {% csrf_token %}
             {{ form.title }}
