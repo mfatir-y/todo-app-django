@@ -10,7 +10,7 @@
         box-shadow: 5px 2px 30px 10px rgba(0, 0, 0, 0.5);
         width: 50vw;
         margin: 5rem auto;
-        padding: 3rem;
+        padding: 2rem 3rem;
     }
     
     input {
@@ -43,6 +43,11 @@
     hr {
         margin: 0.5rem 0;
     }
+
+    #remove-task {
+        display: flex;
+        justify-content: space-between;
+    }
 </style>
 <body>
     <div class="center-column">
@@ -55,15 +60,18 @@
         </form>
         
         {% for task in tasks %}
-        <div class="item-row">
             {% if task.complete %}
-            <s style="text-decoration: line-through;">{{task}}</s>
+            <div id="remove_task" class="item-row">
+                <s style="text-decoration: line-through;">{{task}}</s>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">Remove task</a>
+            </div>
             {% else %}
-            <a class="btn btn-sm btn-warning" href="{% url 'update_task' task.id %}">Update Task</a>
-            <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">Delete Task</a>
-            <div style="margin-top: 0.5rem;">{{task}} | Date Created: {{task.created}}</div>
+            <div class="item-row">
+                <a class="btn btn-sm btn-warning" href="{% url 'update_task' task.id %}">Update Task</a>
+                <a class="btn btn-sm btn-danger" href="{% url 'delete_task' task.id %}">Delete Task</a>
+                <div style="margin-top: 0.5rem;">{{task}} | Date Created: {{task.created}}</div>
+            </div>
             {% endif %}
-        </div>
         {% endfor %}
     </div>
 </body>    
