@@ -53,7 +53,7 @@
     <div class="center-column">
         <h2>TODO List</h2>   
         <hr>
-        <form action="/" method="post" >
+        <form action="/" method="post">
             {% csrf_token %}
             {{ form.title }}
             <input class="btn btn-info" type="submit" name="Create task">

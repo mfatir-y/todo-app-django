@@ -5,7 +5,7 @@ def index(request):
     tasks = models.Task.objects.all()
     form = forms.TaskForm()
 
-    if request.method == 'POST':
+    if request.method == "POST":
         form = forms.TaskForm(request.POST)
         if form.is_valid():
             form.save()
